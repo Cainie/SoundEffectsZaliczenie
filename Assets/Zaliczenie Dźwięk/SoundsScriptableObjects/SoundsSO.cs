@@ -7,18 +7,13 @@ using UnityEngine.Audio;
 public class SoundsSO : ScriptableObject
 {
     public List<AudioClip> music;
+    public List<AudioClip> playerMoveSounds;
+    public List<AudioClip> playerEatSounds;
+    public List<AudioClip> playerDrinkSounds;
+    public List<AudioClip> playerChopSounds;
+    public List<AudioClip> monsterAttackSounds;
     public AudioClip roundCompleted;
-    public AudioClip moveSound1;
-    public AudioClip moveSound2;
-    public AudioClip eatSound1;
-    public AudioClip eatSound2;
-    public AudioClip drinkSound1;
-    public AudioClip drinkSound2;
     public AudioClip gameOverSound;
-    public AudioClip attackSound1;
-    public AudioClip attackSound2;
-    public AudioClip chopSound1;
-    public AudioClip chopSound2;
     public AudioClip onButtonHoverSound;
 
     public float snapshotTransitionTime;

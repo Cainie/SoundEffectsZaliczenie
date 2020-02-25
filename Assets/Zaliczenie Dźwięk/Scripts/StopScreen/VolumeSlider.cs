@@ -11,15 +11,14 @@ public class VolumeSlider : MonoBehaviour
     [SerializeField] private Slider _slider;
     
     private void Start() {
-        mainAudioMixer.GetFloat(exposedVolumeParamName, out float volume);
-        _slider.value = volume;
+        _slider.value = 1;
     }
 
     public void SetAudioVolume() {
-        mainAudioMixer.SetFloat(exposedVolumeParamName, CaluculateDecybels(_slider.value));
+        mainAudioMixer.SetFloat(exposedVolumeParamName, CalculateDecibels(_slider.value));
     }
     
-    private float CaluculateDecybels(float sliderValue){
+    private float CalculateDecibels(float sliderValue){
         return Mathf.Log(sliderValue) * 20;
     }
 }
