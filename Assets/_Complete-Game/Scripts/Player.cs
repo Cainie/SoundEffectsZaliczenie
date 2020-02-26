@@ -146,7 +146,8 @@ namespace Completed
 			if (Move (xDir, yDir, out hit)) 
 			{
 				//Call RandomizeSfx of SoundManager to play the move sound, passing in two audio clips to choose from.
-				SoundManager.instance.RandomizeSfx (moveSound1, moveSound2);
+				//SoundManager.instance.RandomizeSfx (moveSound1, moveSound2);
+				SoundsManager.instance.PlayPlayerMoveSound();
 			}
 			
 			//Since the player has moved and lost food points, check if the game has ended.
@@ -180,7 +181,7 @@ namespace Completed
 			{
 				//Invoke the Restart function to start the next level with a delay of restartLevelDelay (default 1 second).
 				Invoke ("Restart", restartLevelDelay);
-				
+				SoundsManager.instance.PlayRoundCompletedSound();
 				//Disable the player object since level is over.
 				enabled = false;
 			}
@@ -195,7 +196,8 @@ namespace Completed
 				foodText.text = "+" + pointsPerFood + " Food: " + food;
 				
 				//Call the RandomizeSfx function of SoundManager and pass in two eating sounds to choose between to play the eating sound effect.
-				SoundManager.instance.RandomizeSfx (eatSound1, eatSound2);
+				//SoundManager.instance.RandomizeSfx (eatSound1, eatSound2);
+				SoundsManager.instance.PlayPlayerEatSound();
 				
 				//Disable the food object the player collided with.
 				other.gameObject.SetActive (false);
@@ -211,7 +213,8 @@ namespace Completed
 				foodText.text = "+" + pointsPerSoda + " Food: " + food;
 				
 				//Call the RandomizeSfx function of SoundManager and pass in two drinking sounds to choose between to play the drinking sound effect.
-				SoundManager.instance.RandomizeSfx (drinkSound1, drinkSound2);
+				//SoundManager.instance.RandomizeSfx (drinkSound1, drinkSound2);
+				SoundsManager.instance.PlayPlayerDrinkSound();
 				
 				//Disable the soda object the player collided with.
 				other.gameObject.SetActive (false);
@@ -253,10 +256,11 @@ namespace Completed
 			if (food <= 0) 
 			{
 				//Call the PlaySingle function of SoundManager and pass it the gameOverSound as the audio clip to play.
-				SoundManager.instance.PlaySingle (gameOverSound);
+				//SoundManager.instance.PlaySingle (gameOverSound);
+				SoundsManager.instance.PlayGameOverSound();
 				
 				//Stop the background music.
-				SoundManager.instance.musicSource.Stop();
+				//SoundManager.instance.musicSource.Stop();
 				
 				//Call the GameOver function of GameManager.
 				GameManager.instance.GameOver ();

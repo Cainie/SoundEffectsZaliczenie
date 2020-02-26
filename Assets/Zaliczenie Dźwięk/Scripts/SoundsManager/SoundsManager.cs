@@ -11,6 +11,7 @@ public class SoundsManager : MonoBehaviour
     [SerializeField] private AudioSource sfxAudioSource;
     [SerializeField] private AudioSource musicAudioSource;
     [SerializeField] private AudioSource UIAudioSource;
+    
 
     private void Start(){
         StartCoroutine(PlayMusic());
@@ -56,6 +57,7 @@ public class SoundsManager : MonoBehaviour
 
     public void PlayGameOverSound(){
         sfxAudioSource.PlayOneShot(soundsSO.gameOverSound);
+        StopAllCoroutines();
     }
 
     public void PlayOnButtonHoverSound(){
